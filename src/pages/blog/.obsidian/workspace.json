@@ -1,0 +1,150 @@
+{
+  "main": {
+    "id": "e1d1fb8a683221a4",
+    "type": "split",
+    "children": [
+      {
+        "id": "d02e7912b620693d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "65ee445b69996ecf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "app-hacked.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "260dd699a70b9d72",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f1cd2c92a4b1c98",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b736114c08203b8f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f3eb1d530a429f22",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4b16c9cd41ac22c9",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6718dfdc46f0b3bc",
+    "type": "split",
+    "children": [
+      {
+        "id": "151bb174a6b4a114",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "56779b3c4ae488df",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "app-hacked.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cf683822be31c868",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "app-hacked.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c1fe14066bc5bd5b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "eddf540758436e84",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "app-hacked.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "65ee445b69996ecf",
+  "lastOpenFiles": [
+    "vim-iizo.md",
+    "third-post.md",
+    "second-post.md",
+    "markdown-style-guide.md",
+    "first-post.md"
+  ]
+}
