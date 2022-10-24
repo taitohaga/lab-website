@@ -1,0 +1,15 @@
+---
+
+---
+
+<script is:inline>
+    const root = document.documentElement;
+    const localStorageTheme = localStorage.getItem('theme');
+    if (localStorageTheme !== null) {
+        if (localStorageTheme === 'light') {
+            root.classList.remove('dark');
+        } else {
+            root.classList.add('dark');
+        }
+    }
+</script>
