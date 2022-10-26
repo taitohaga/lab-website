@@ -4,16 +4,19 @@ main,h1,h2,h3,h4,h5,ol,ul,b,strong,i,em {
 h1 {
   font-size: 1.8rem;
   margin-bottom: 1.0rem;
+  font-weight: 700;
   color: inherit;
 }
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1.0rem;
+  font-weight: 700;
   color: inherit;
 }
 h3 {
   font-size: 1.3rem;
   margin-bottom: 1.0rem;
+  font-weight: 700;
   color: inherit;
 }
 h4 {
@@ -60,4 +63,9 @@ blockquote {
   color: inherit;
   padding: 1.0rem;
   border-radius: 1.0rem;
+}
+
+pre, img {
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }

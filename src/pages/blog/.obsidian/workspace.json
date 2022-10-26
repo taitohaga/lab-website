@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "app-hacked.md",
+                "file": "astro-portfolio.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "6718dfdc46f0b3bc",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "app-hacked.md",
+                "file": "astro-portfolio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "app-hacked.md",
+                "file": "astro-portfolio.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "app-hacked.md"
+                "file": "astro-portfolio.md"
               }
             }
           }
@@ -141,6 +142,7 @@
   },
   "active": "65ee445b69996ecf",
   "lastOpenFiles": [
+    "app-hacked.md",
     "vim-iizo.md",
     "third-post.md",
     "second-post.md",
