@@ -20,10 +20,10 @@ import {
         <Header title={SITE_TITLE} />
         <main>
             <Container>
-                <div class="flex flex-col content-center justify-center py-5">
-                    <div>
+                <div class="flex flex-col lg:flex-row content-center justify-center py-5 lg:gap-10">
+                    <div class="flex flex-col content-center justify-center">
                         <img
-                            class="object-cover rounded-full md:w-60 md:h-60 w-40 h-40 m-auto"
+                            class="object-cover rounded-full w-40 h-40 m-auto md:w-60 md:h-60"
                             src="/lab/member/2109/me.jpg"
                             alt="Me"
                         />
@@ -54,7 +54,7 @@ import {
                 </div>
                 <p class="py-5 text-base dark:text-slate-50">羽賀です。技術を好みます。</p>
                 <h2 class="text-center font-bold text-2xl text-slate-800 dark:text-slate-50">Contents</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     <ContentBox
                         title="Blog"
                         imgSrc="code.png"

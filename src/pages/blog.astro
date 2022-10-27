@@ -43,7 +43,7 @@ const postsNonDraft = posts.filter((post) => !post.frontmatter.draft);
             <Container>
                 <section>
                     <h2 class="text-center font-bold text-2xl text-slate-800 dark:text-slate-50">Blog Entries</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 md:transition-all">
+                    <div class="grid grid-cols-1 md:grid-cols-2 md:transition-all lg:grid-cols-3">
                         {
                             postsNonDraft.map((post) => (
                                 <ContentBox

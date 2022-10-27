@@ -1,8 +1,22 @@
 import React from 'react';
 
-export function Container(props: React.PropsWithChildren) {
+export function Container(
+  props: React.PropsWithChildren & { className?: string }
+) {
   return (
-    <div className="max-w-xl h-full m-auto box-border px-2 bg-inherit">
+    <div
+      className={`${
+        props.className ? props.className : ''
+      } max-w-xl lg:max-w-3xl h-full m-auto box-border px-2 bg-inherit`}
+    >
+      {props.children}
+    </div>
+  );
+}
+
+export function BlogPostContainer(props: React.PropsWithChildren) {
+  return (
+    <div className="max-w-xl lg:max-w-xl h-full m-auto box-border px-2 bg-inherit">
       {props.children}
     </div>
   );
@@ -71,12 +85,4 @@ export function Chip(props: React.PropsWithChildren & { icon?: string }) {
       <span>{props.children}</span>
     </div>
   );
-}
-
-export function PageHeader(props: React.PropsWithChildren) {
-  return <h1 className="font-bold">{props.children}</h1>;
-}
-
-export function SectionHeader(props: React.PropsWithChildren) {
-  return <h2>{props.children}</h2>;
 }
