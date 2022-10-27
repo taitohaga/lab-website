@@ -29,6 +29,7 @@ export default function TocToggler(props: TocTogglerProps) {
         <TocSidebar
           headings={props.headings}
           tocItemTextClassName="text-xs text-white"
+          tocItemClassName="hover:bg-sky-200 dark:hover:bg-slate-700 rounded-md pl-1"
         />
       </div>
       <div className="rounded-full w-12 h-12 mr-0 bg-blue-500 dark:bg-blue-800 z-20">

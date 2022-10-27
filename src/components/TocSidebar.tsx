@@ -107,11 +107,11 @@ export default function TocSidebar(props: TocSidebarProps) {
         return (
           <li key={node.slug}>
             <>
-              <div className={tocItemClasses}>
-                <a href={`#${node.slug}`}>
+              <a href={`#${node.slug}`}>
+                <div className={tocItemClasses}>
                   <span className={tocItemTextClasses}>{node.text}</span>
-                </a>
-              </div>
+                </div>
+              </a>
               {node.children.length !== 0 ? (
                 node.children.map((n: HeadingNode) => renderToc(n))
               ) : (
