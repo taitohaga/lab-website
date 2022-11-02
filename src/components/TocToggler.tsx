@@ -23,7 +23,7 @@ export default function TocToggler(props: TocTogglerProps) {
       <div
         className={`${
           tocOpen ? 'block' : 'hidden'
-        } ease-in-out bg-blue-400 dark:bg-blue-800 text-white py-4 px-2 drop-shadow-lg shadow-cyan-800 rounded-lg z-20
+        } max-w-[90vw] max-h-[calc(100vh-10rem)] overflow-y-auto ease-in-out bg-blue-400 dark:bg-blue-800 text-white py-4 px-2 drop-shadow-lg shadow-cyan-800 rounded-lg z-20
         `}
       >
         <TocSidebar
