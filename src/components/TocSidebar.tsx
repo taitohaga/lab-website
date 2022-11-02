@@ -81,22 +81,24 @@ export default function TocSidebar(props: TocSidebarProps) {
 
   const renderToc = (headingNode: HeadingNode) => {
     return (
-      <ul className="list-none">
-        <li key={headingNode.slug}>
-          <>
-            <a href={`#${headingNode.slug}`}>
-              <div className={tocItemClasses}>
-                <span className={tocItemTextClasses}>{headingNode.text}</span>
-              </div>
-            </a>
-            {headingNode.children.length !== 0 ? (
-              headingNode.children.map((node: HeadingNode) => renderToc(node))
-            ) : (
-              <></>
-            )}
-          </>
-        </li>
-      </ul>
+      <li key={headingNode.slug}>
+        <>
+          <a href={`#${headingNode.slug}`}>
+            <div className={tocItemClasses}>
+              <span className={tocItemTextClasses}>{headingNode.text}</span>
+            </div>
+          </a>
+          {headingNode.children.length !== 0 ? (
+            <ul
+              className={`list-none ${props.className ? props.className : ''}`}
+            >
+              {headingNode.children.map((node: HeadingNode) => renderToc(node))}
+            </ul>
+          ) : (
+            <></>
+          )}
+        </>
+      </li>
     );
   };
 
@@ -113,7 +115,13 @@ export default function TocSidebar(props: TocSidebarProps) {
                 </div>
               </a>
               {node.children.length !== 0 ? (
-                node.children.map((n: HeadingNode) => renderToc(n))
+                <ul
+                  className={`list-none ${
+                    props.className ? props.className : ''
+                  }`}
+                >
+                  {node.children.map((n: HeadingNode) => renderToc(n))}
+                </ul>
               ) : (
                 <></>
               )}
