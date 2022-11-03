@@ -7,7 +7,7 @@ export function Container(
     <div
       className={`${
         props.className ? props.className : ''
-      } max-w-xl lg:max-w-3xl h-full m-auto box-border px-2 bg-inherit`}
+      } max-w-screen-md lg:max-w-screen-xl h-full m-auto box-border px-2 bg-inherit`}
     >
       {props.children}
     </div>
@@ -16,7 +16,7 @@ export function Container(
 
 export function BlogPostContainer(props: React.PropsWithChildren) {
   return (
-    <div className="max-w-xl lg:max-w-xl h-full m-auto box-border px-2 bg-inherit">
+    <div className="max-w-screen-md lg:max-w-screen-md h-full m-auto box-border bg-inherit">
       {props.children}
     </div>
   );

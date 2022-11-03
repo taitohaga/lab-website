@@ -448,8 +448,11 @@ export default function TocToggler(props: TocTogglerProps) {
 }
 ```
 
-見てわかる通り、コンポーネントのステート `tocOpen` の値によって適用するクラスを変更している。
+見てわかる通り、コンポーネントのステート `tocOpen` の値によって適用するクラスを変更している。ところで、このコンポーネントはクライアントサイドでコンポーネントの表示・非表示を切り替えるので、ブラウザのスクリプトを読み込んでもらう必要がある。
 
+```astro
+<TocToggler client:load />
+```
 
 ## 目次の自動生成
 
@@ -510,4 +513,109 @@ interface HeadingNode {
 }
 ```
 
-Astroのヘディングオブジェクトに `parent` と `children` を追加した。それぞれ親のノードと子のノードを示している。
+Astroのヘディングオブジェクトに `parent` と `children` を追加した。それぞれ親のノードと子のノードを示している。最初、ReactのAPIを直接利用しようと考えたが、Vanilla JSのWeb APIでいう `appendChild` メソッドに相当するものが `ReactNode` にもあるのかがわからなかった（もしあるのなら教えて欲しい）。なのでこのようなノードオブジェクトを自分で定義して、あとはJSXの書き方でReactのコンポーネントを構築していく。
+
+木構造にするには、次のように処理すれば良い。
+
+- rootノードを作成する
+- rootノードをlastノードとする
+- 与えられたヘディングの配列の要素それぞれに対し、以下を実行
+  - lastのdepthと対象の要素のdepthを比較
+    - lastの要素のdepth > 対象の要素のdepthなら、対象の要素からHeadingNode型オブジェクトを作成し、lastのchildrenに追加。これをlastとする
+    - lastの要素のdepth === 対象の要素のdepthなら、対象の要素からHeadingNode型オブジェクトを作成し、lastのparentのchilrenに追加。これをlastとする
+    - lastの要素のdepth < 対処の要素のdepthなら、lastのparentをparとし、parのparentが存在する限り以下を繰り返し実行
+      - parのdepthと対象の要素のdepthを比較
+        - 等しければ、対象の要素からHeadingNode型オブジェクトを作成し、parのparentのchildrenに追加。これをlastとし、ループを抜ける
+      - parのparentをparとする
+
+このサイトにおける実装は [ここ](https://github.com/taitohaga/lab-website/commit/145e11b935b634049bba9270778d05b3cc217baf#diff-0f6bd3f0b5e48a667ee9574bfb3aac8827c2aeb42d55ffe9594860d7728f6be4) で確認することができる。日本語よりJavaScriptのソースコードで見たほうが絶対にわかりやすい。
+
+`HeadingNode` 型を用いた木構造オブジェクトが作成できたら、それを元にJSXの書き方でReactのノードに変換する。これは関数を再帰的に呼び出せば実現できる。
+
+```jsx
+const renderToc = (headingNode: HeadingNode) => {
+  return (
+    <li key={headingNode.slug}>
+      <>
+        <a href={`#${headingNode.slug}`}>
+          <div className="...">
+            <span className="...">{headingNode.text}</span>
+          </div>
+        </a>
+        {headingNode.children length !== 0 ? (
+          <ul>
+          {headingNode.children.map((node: HeadingNode) => renderToc(node))}
+          </ul>
+        ) : (
+          <></>
+        )}
+      </>
+    </li>
+  );
+};
+```
+
+## 画面サイズで切り替える
+
+ここまでで作成したコンポーネントを、画面のサイズに従って切り替えたい。Tailwind CSSでの画面の横幅の設定について見てみよう。ブレークポイントと最小サイズは次の通り。
+
+| 接頭辞 | 最小幅 | CSS | 主なデバイス |
+|---|---|---|---|
+| `sm` | 640px | `@media (min-width: 640px) { ... }` | スマホ |
+| `md` | 768px | `@media (min-width: 768px) { ... }` | タブレット |
+| `lg` | 1024px | `@media (min-width: 1024px) { ... }` | PC |
+| `xl` | 1280px | `@media (min-width: 1280px) { ... }` | 解像度高めのPC |
+| `2xl` | 1536px | `@media (min-width: 1536px) { ... }` | 4K |
+
+クラス名にこれらの接頭辞を付け加えると、その画面サイズ以上の表示領域でクラスのスタイルが適用される。つまり、最初にスマホでの表示の仕方を考えておき、画面が大きくなるに連れてそれに合わせて表示方法を変えさせる、というスタンスを取っているようだ。
+
+このウェブサイトでは `lg` をブレークポイントとする。
+
+```jsx
+<div>
+  <div>
+    {/*メインコンテンツ*/}
+  </div>
+  <div>
+    <div class="hidden lg:block ...">
+      {/*目次 (サイドバー)*/}
+    </div>
+    <TocToggler />
+  </div>
+</div>
+```
+
+`block` というクラスはCSSでいう `display: block` に、 `hidden` は先程も登場したが `display: hidden` になるので、これによって画面サイズが `lg` 以上のときにサイドバー型の目次が表示され、それ以外のときは非表示に切り替わる。これらのブレークポイントは、そのスタイルが適用される最小の画面サイズを表していることを留意する必要がある。
+
+# 大きめ画面に対応
+
+先程 `lg` をブレークポイントとするときの画面のレイアウト変更を実装したが、どうせならブログ記事のページ以外の部分も大きめの画面に対応させよう。
+
+例えば、トップページの私のプロフィールやコンテンツのスタックは、画面サイズに応じて列数を変更したほうが表示領域を広く使えて良い。
+
+```jsx
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <ContentBox />
+  <ContentBox />
+  <ContentBox />
+</div>
+```
+
+横幅が広いなら、私の顔写真とプロフィールカードを横に並べるよう変更するのも良さそうだ。
+
+```jsx
+<div class="flex flex-col lg:flex-row content-center justify-center py-5 lg:gap-10">
+  <div class="flex flex-col content-center justify-center">
+    <img
+      class="object-cover rounded-full w-40 h-40 m-auto md:w-60 md:h-60"
+      src="/lab/member/2109/me.jpg"
+      alt="Me"
+    />
+  </div>
+  <div class="...">
+    {/* ... */}
+  </div>
+</div>
+```
+
+画面サイズが `lg` より大きいときにフレックスボックスの主軸をrowに変更している。
