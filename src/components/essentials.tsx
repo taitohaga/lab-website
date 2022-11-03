@@ -16,7 +16,7 @@ export function Container(
 
 export function BlogPostContainer(props: React.PropsWithChildren) {
   return (
-    <div className="max-w-screen-md lg:max-w-screen-md h-full m-auto box-border bg-inherit">
+    <div className="max-w-screen-md lg:max-w-screen-md h-full m-auto box-border px-4 bg-inherit">
       {props.children}
     </div>
   );
