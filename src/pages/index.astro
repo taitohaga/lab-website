@@ -1,84 +1,84 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Body from "../components/Main.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Body from '../components/Main.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import {
-    Container,
-    ContentBox,
-    Chip,
-} from "../components/essentials";
+  Container,
+  ContentBox,
+  Chip,
+} from '../components/essentials';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <Body>
-        <Header title={SITE_TITLE} />
-        <main class="min-h-screen">
-            <Container>
-                <div class="flex flex-col lg:flex-row content-center justify-center py-5 lg:gap-10">
-                    <div class="flex flex-col content-center justify-center">
-                        <img
-                            class="object-cover rounded-full lg:rounded-lg w-40 h-40 m-auto md:w-60 md:h-60"
-                            src="/lab/member/2109/me.jpg"
-                            alt="Me"
-                        />
-                    </div>
-                    <div
-                        class="drop-shadow-lg bg-blue-50 dark:bg-blue-700 rounded-lg h-fit my-10 px-5 py-2"
-                    >
-                        <div class="my-4">
-                            <h3 class="font-bold text-2xl text-center text-slate-800 dark:text-slate-50">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header title={SITE_TITLE} />
+    <main class="min-h-screen">
+      <Container>
+        <div class="flex flex-col lg:flex-row content-center justify-center py-5 lg:gap-10">
+          <div class="flex flex-col content-center justify-center">
+            <img
+              class="object-cover rounded-full lg:rounded-lg w-40 h-40 m-auto md:w-60 md:h-60"
+              src="/lab/member/2109/me.jpg"
+              alt="Me"
+            />
+          </div>
+          <div
+            class="drop-shadow-lg bg-blue-50 dark:bg-blue-700 rounded-lg h-fit my-10 px-5 py-2"
+          >
+            <div class="my-4">
+              <h3 class="font-bold text-2xl text-center text-slate-800 dark:text-slate-50">
                                 Taito HAGA (羽賀 大登)
-                            </h3>
-                        </div>
-                        <div class="my-4 text-center">
-                            <Chip icon="wysiwyg">Software engineer</Chip>
-                            <Chip icon="code">Web Developer</Chip>
-                            <Chip icon="keyboard">Vim Enthusiast</Chip>
-                            <Chip icon="videogame_asset">Game Enjoyer</Chip>
-                        </div>
-                        <div class="grid grid-cols-2 text-slate-800 dark:text-slate-50">
-                            <span class="font-bold">出身</span>
-                            <span>京都</span>
-                            <span class="font-bold">所属</span>
-                            <span>滋賀大学 データサイエンス学部</span>
-                            <span class="font-bold">ゼミ</span>
-                            <span>川井ゼミ</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="py-5 text-base dark:text-slate-50">羽賀です。技術を好みます。</p>
-                <h2 class="text-center font-bold text-2xl text-slate-800 dark:text-slate-50">Contents</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <ContentBox
-                        title="Blog"
-                        imgSrc="code.png"
-                        icon="library_books"
-                        href="/lab/member/2109/blog"
-                        description="プログラミングを勉強していて気づいたことなど"
-                    />
-                    <ContentBox
-                        title="About"
-                        imgSrc="me-operating-train.jpg"
-                        icon="person"
-                        href="/lab/member/2109/about"
-                        description="経歴、技術スタック、趣味"
-                    />
-                    <ContentBox
-                        title="GitHub"
-                        imgSrc="GitHub-Mark/PNG/GitHub-Mark-120px-plus.png"
-                        icon="data_object"
-                        href="https://github.com/taitohaga"
-                        description="Dotfilesや授業課題くらいしかない"
-                    />
-                </div>
-            </Container>
-        </main>
-        <Footer />
-    </Body>
+              </h3>
+            </div>
+            <div class="my-4 text-center">
+              <Chip icon="wysiwyg">Software engineer</Chip>
+              <Chip icon="code">Web Developer</Chip>
+              <Chip icon="keyboard">Vim Enthusiast</Chip>
+              <Chip icon="videogame_asset">Game Enjoyer</Chip>
+            </div>
+            <div class="grid grid-cols-2 text-slate-800 dark:text-slate-50">
+              <span class="font-bold">出身</span>
+              <span>京都</span>
+              <span class="font-bold">所属</span>
+              <span>滋賀大学 データサイエンス学部</span>
+              <span class="font-bold">ゼミ</span>
+              <span>川井ゼミ</span>
+            </div>
+          </div>
+        </div>
+        <p class="py-5 text-base dark:text-slate-50">羽賀です。技術を好みます。</p>
+        <h2 class="text-center font-bold text-2xl text-slate-800 dark:text-slate-50">Contents</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <ContentBox
+            title="Blog"
+            imgSrc="code.png"
+            icon="library_books"
+            href="/lab/member/2109/blog"
+            description="プログラミングを勉強していて気づいたことなど"
+          />
+          <ContentBox
+            title="About"
+            imgSrc="me-operating-train.jpg"
+            icon="person"
+            href="/lab/member/2109/about"
+            description="経歴、技術スタック、趣味"
+          />
+          <ContentBox
+            title="GitHub"
+            imgSrc="GitHub-Mark/PNG/GitHub-Mark-120px-plus.png"
+            icon="data_object"
+            href="https://github.com/taitohaga"
+            description="Dotfilesや授業課題くらいしかない"
+          />
+        </div>
+      </Container>
+    </main>
+    <Footer />
+  </Body>
 </html>

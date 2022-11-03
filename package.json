@@ -9,7 +9,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint --ext .astro,.tsx,.ts \"src/**\"",
+    "lint:fix": "eslint --ext .astro,.tsx,.ts --fix \"src/**\""
   },
   "dependencies": {
     "@astrojs/mdx": "^0.11.4",
@@ -24,6 +26,10 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "@types/react": "^18.0.21"
+    "@types/react": "^18.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "eslint-plugin-astro": "^0.21.0"
   }
 }

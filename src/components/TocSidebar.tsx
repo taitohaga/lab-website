@@ -32,7 +32,7 @@ export default function TocSidebar(props: TocSidebarProps) {
   let last = rootHeading;
   props.headings.forEach(h => {
     if (last.depth < h.depth) {
-      let n = {
+      const n = {
         text: h.text,
         slug: h.slug,
         depth: h.depth,
@@ -43,7 +43,7 @@ export default function TocSidebar(props: TocSidebarProps) {
       last = n;
     } else if (last.depth === h.depth) {
       if (last.parent) {
-        let n = {
+        const n = {
           text: h.text,
           slug: h.slug,
           depth: h.depth,
@@ -57,7 +57,7 @@ export default function TocSidebar(props: TocSidebarProps) {
       let par = last.parent;
       while (par) {
         if (par.depth === h.depth && par.parent) {
-          let n = {
+          const n = {
             text: h.text,
             slug: h.slug,
             depth: h.depth,

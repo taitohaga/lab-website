@@ -1,55 +1,55 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../config";
-import { Container } from "./essentials";
-import ThemeToggle from "./ThemeToggle";
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../config';
+import { Container } from './essentials';
+import ThemeToggle from './ThemeToggle';
 ---
 
 <header class="sticky top-0 z-10 bg-blue-500 dark:bg-blue-800 h-12 drop-shadow-lg shadow-cyan-800 transition-colors duration-500">
-    <Container>
-        <nav class="h-full w-full flex">
-            <div class="grow my-auto">
-                <div class="flex">
-                    <div class="h-fit w-fit mr-1">
-                        <a href="/lab/member/2109/">
-                            <span class="material-symbols-outlined text-white">
+  <Container>
+    <nav class="h-full w-full flex">
+      <div class="grow my-auto">
+        <div class="flex">
+          <div class="h-fit w-fit mr-1">
+            <a href="/lab/member/2109/">
+              <span class="material-symbols-outlined text-white">
                                 terminal</span
-                            >
-                        </a>
-                    </div>
-                    <a href="/lab/member/2109/"
-                        ><span class="text-white font-bold text-xl"
-                            >{SITE_TITLE}</span
-                        >
-                    </a>
-                </div>
-            </div>
-            <div class="flex h-full">
-                <div class="h-fit my-auto mx-1">
-                    <HeaderLink href="/lab/member/2109/blog">
-                        <span class="material-icons text-white mr-1">library_books</span>
-                        <span class="text-white hidden md:inline">Blog</span>
-                    </HeaderLink>
-                </div>
-                <div class="h-fit my-auto mx-1">
-                    <HeaderLink href="/lab/member/2109/about">
-                        <span class="material-icons text-white mr-1">person</span>
-                        <span class="text-white hidden md:inline">About</span>
-                    </HeaderLink>
-                </div>
-                <div class="h-fit my-auto mx-1">
-                    <HeaderLink
-                        href="https://github.com/taitohaga"
-                        target="_blank"
-                    >
-                        <span class="material-icons text-white mr-1">data_object</span>
-                        <span class="text-white hidden md:inline">GitHub</span>
-                    </HeaderLink>
-                </div>
-                <div class="h-fit my-auto mx-1">
-                    <ThemeToggle client:load />
-                </div>
-            </div>
-        </nav>
-    </Container>
+              >
+            </a>
+          </div>
+          <a href="/lab/member/2109/"
+          ><span class="text-white font-bold text-xl"
+            >{SITE_TITLE}</span
+            >
+          </a>
+        </div>
+      </div>
+      <div class="flex h-full">
+        <div class="h-fit my-auto mx-1">
+          <HeaderLink href="/lab/member/2109/blog">
+            <span class="material-icons text-white mr-1">library_books</span>
+            <span class="text-white hidden md:inline">Blog</span>
+          </HeaderLink>
+        </div>
+        <div class="h-fit my-auto mx-1">
+          <HeaderLink href="/lab/member/2109/about">
+            <span class="material-icons text-white mr-1">person</span>
+            <span class="text-white hidden md:inline">About</span>
+          </HeaderLink>
+        </div>
+        <div class="h-fit my-auto mx-1">
+          <HeaderLink
+            href="https://github.com/taitohaga"
+            target="_blank"
+          >
+            <span class="material-icons text-white mr-1">data_object</span>
+            <span class="text-white hidden md:inline">GitHub</span>
+          </HeaderLink>
+        </div>
+        <div class="h-fit my-auto mx-1">
+          <ThemeToggle client:load />
+        </div>
+      </div>
+    </nav>
+  </Container>
 </header>
